@@ -27,10 +27,14 @@
 </head>
 
 <body>
-<div id = "introtext">
-    <h1>Urban Informalities: Street Vendors </h1>
-    <h2><img src="pictures/LVSketch.jpg"></h2>
-    <h3>This map focuses on the Chicago Neighborhood of Little Village. It attempts to review what spaces have the most compatible features for street vendors.  The goal is to identify spaces that have higher compatibilities in hopes that pedestrian improvements can be prioritized in these areas.</h3>  
+<div class = "intro">
+    <h1>Unequal Access to the Right-of-Way </h1>
+    <h2>Reviewing Chicago's Alfresco Dining Program a</h2>  
+
+<!--Explaing the problem of equal access to the ROW-->
+<div class = "Alfresco">  
+    <p>A higher concentration of outdoor dining permits have been issued on the in parts of Chicago with a relatively low Social Vulnerability Index. Limited access to outdoor dining option places an economic burden on already struggling restaurants in more vulnerable neighborhoods. </p>
+    <p>You can learn more about the City of Chicago's efforts to bridge this disparity <a href="https://streetvendorschi.org/">here.</p>
 </div>
 
 
@@ -40,7 +44,7 @@
 <script> 
 
 // initialize your map here 
-var map = L.map('map').setView([41.84451, -87.71244], 18);
+var map = L.map('map').setView([41.84451, -87.71244], 5);
 
 // add a base layer 
 var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}', {
