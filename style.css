@@ -1,0 +1,46 @@
+#introtext h1 {
+	padding-top: 40px;
+	text-align: center;
+	background-color: #0BBED6;
+	color: whitesmoke;
+	text-decoration: wavy;
+	border-style: inset;
+	height: 100px;
+	width:  100%;
+	font-family: font-family: 'Mate SC', serif;
+	text-transform: uppercase;
+	font-size: 45px;
+	box-shadow:5px 5px 5px #999
+}
+
+#introtext h2 {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width:  100%;
+	height: auto;
+}
+
+#introtext h3 {
+	padding-top: 20px
+	text-align: center;
+	background-color: #ebb134;
+	color: whitesmoke;
+	text-decoration: wavy;
+	border-style: inset;
+	height: 130px;
+	width: 100%;
+	font-family: 'Architects Daughter', cursive;
+	text-transform: uppercase;
+	font-size: 25px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#map {
+	width: 800px;
+	height: 600px;
+	margin: auto;
+}
+

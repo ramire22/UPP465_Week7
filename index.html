@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>UPP 465 Week 7</title>
+
+    <!-- Copy your CSS file link here:  -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Copy your leaflet link here:  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <!-- Copy your Leaflet Basemap Provider Link Here: -->
+    <script src="js/leaflet-providers.js"></script>
+
+    <!-- Copy your Google font link here:  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
+    
+
+</head>
+
+<body>
+<div id = "introtext">
+    <h1>Urban Informalities: Street Vendors </h1>
+    <h2><img src="pictures/LVSketch.jpg"></h2>
+    <h3>This map focuses on the Chicago Neighborhood of Little Village. It attempts to review what spaces have the most compatible features for street vendors.  The goal is to identify spaces that have higher compatibilities in hopes that pedestrian improvements can be prioritized in these areas.</h3>  
+</div>
+
+
+<div id = "map"><!-- Using Leaflet below, we will put a map in this div --></div>
+
+
+<script> 
+
+// initialize your map here 
+var map = L.map('map').setView([41.84451, -87.71244], 18);
+
+// add a base layer 
+var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    subdomains: 'abcd',
+    minZoom: 0,
+    maxZoom: 20,
+    ext: 'png'
+}).addTo(map);
+
+//create a variable that pull in a new icon  image
+var myIcon = L.icon({
+    iconUrl: 'pictures/eloteraspado.png',
+    iconSize: [30, 30],
+});
+
+//create markers and give it the icon we created
+var marker = L.marker([41.84451, -87.71244],{
+    icon:myIcon
+    }).addTo(map).bindPopup("Street Vendor 1");
+
+var marker = L.marker([41.844482, -87.712268],{
+    icon:myIcon
+    }).addTo(map).bindPopup("Street Vendor 2");
+
+var marker = L.marker([41.844350, -87.712268],{
+    icon:myIcon
+}).addTo(map).bindPopup("Street Vendor 3")
+
+
+//create a polygon and style
+var polygon = L.polygon([
+    [41.84452, -87.71248],
+    [41.84452, -87.71205],
+    [41.84434, -87.71171],
+    [41.84433, -87.71248],
+], {
+    color: 'green',
+    fillColor: 'yellow',
+    fillOpacity: .11,
+}).addTo(map).bindPopup("Available ROW space between building footprints");
+
+//create a line
+var line = L.polyline([
+    [41.84450, -87.71251],
+    [41.84433, -87.71251],
+
+]).addTo(map).bindPopup("66-foot wide ROW");
+
+
+</script>
+   
+</div>
+
+</body>
+ 
+</html>
