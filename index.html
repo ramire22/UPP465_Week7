@@ -50,7 +50,7 @@
 <script> 
 
 // initialize your map here 
-var map = L.map('map').setView([41.84451, -87.71244], 11);
+var map = L.map('map').setView([41.84451, -87.71244], 10);
 
 // add a base layer 
 var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}', {
@@ -64,7 +64,15 @@ var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/
 
 // load Chicago Sidewalk Permits GeoJSON File
     $.getJSON("Sidewalk_Cafe_Permits.geojson",function(data){
-    L.geoJSON(data).addTo(map);
+// L.geoJson function to parse GeoJSON File and load to map.
+    L.geoJSON(data, {
+        pointToLayer: function(feature, latlng) {
+            return new L.CircleMarker(latlng;
+                {   radius: 5,
+                    fillOpacity: 1,
+                    fillColor: '#FFC619'});
+        }
+    }).addTo(map);
     });
 
 </script>
