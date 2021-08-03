@@ -19,32 +19,39 @@
     <script src="js/leaflet-providers.js"></script>
 
     <!-- Copy your Google font link here:  -->
+    <!-- Font for header-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <!--Font for rest of text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+    <!-- Add jQuery -->
+<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 </head>
 
 <body>
-<div class = "intro">
+<div id = "intro">
     <h1>Unequal Access to the Right-of-Way </h1>
-    <h2>Reviewing Chicago's Alfresco Dining Program a</h2>  
+    <h2>Reviewing Chicago's Alfresco Dining Program</h2>  
 
 <!--Explaing the problem of equal access to the ROW-->
-<div class = "Alfresco">  
-    <p>A higher concentration of outdoor dining permits have been issued on the in parts of Chicago with a relatively low Social Vulnerability Index. Limited access to outdoor dining option places an economic burden on already struggling restaurants in more vulnerable neighborhoods. </p>
-    <p>You can learn more about the City of Chicago's efforts to bridge this disparity <a href="https://streetvendorschi.org/">here.</p>
+<div class = "alfresco">  
+    <p> A higher concentration of outdoor dining permits have been issued in parts of Chicago with a relatively low Social Vulnerability Index. Limited access to outdoor dining options places an economic burden on already struggling restaurants in more vulnerable neighborhoods. </p>
+    <p>You can learn more about the City of Chicago's efforts to bridge this disparity <a href="https://chicago.eater.com/2021/5/25/22452999/chicago-alfresco-outdoor-dinining-beautification-streets-grants/">here</a></p>
 </div>
 
 
 <div id = "map"><!-- Using Leaflet below, we will put a map in this div --></div>
 
-
 <script> 
 
 // initialize your map here 
-var map = L.map('map').setView([41.84451, -87.71244], 5);
+var map = L.map('map').setView([41.84451, -87.71244], 11);
 
 // add a base layer 
 var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}', {
@@ -55,25 +62,10 @@ var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/
     ext: 'png'
 }).addTo(map);
 
-//create a variable that pull in a new icon  image
-var myIcon = L.icon({
-    iconUrl: 'pictures/eloteraspado.png',
-    iconSize: [30, 30],
-});
-
-//create markers and give it the icon we created
-var marker = L.marker([41.84451, -87.71244],{
-    icon:myIcon
-    }).addTo(map).bindPopup("Street Vendor 1");
-
-var marker = L.marker([41.844482, -87.712268],{
-    icon:myIcon
-    }).addTo(map).bindPopup("Street Vendor 2");
-
-var marker = L.marker([41.844350, -87.712268],{
-    icon:myIcon
-}).addTo(map).bindPopup("Street Vendor 3")
-
+// load Chicago Sidewalk Permits GeoJSON File
+$.getJSON("Sidewalk_Cafe_Permits.geojson",function(data){
+    L.geoJSON(data,.addTo(map);
+    });
 
 //create a polygon and style
 var polygon = L.polygon([
