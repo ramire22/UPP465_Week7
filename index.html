@@ -29,9 +29,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
     <!-- Add jQuery -->
-<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -62,30 +61,11 @@ var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/
     ext: 'png'
 }).addTo(map);
 
+
 // load Chicago Sidewalk Permits GeoJSON File
-$.getJSON("Sidewalk_Cafe_Permits.geojson",function(data){
+    $.getJSON("Sidewalk_Cafe_Permits.geojson",function(data){
     L.geoJSON(data,.addTo(map);
     });
-
-//create a polygon and style
-var polygon = L.polygon([
-    [41.84452, -87.71248],
-    [41.84452, -87.71205],
-    [41.84434, -87.71171],
-    [41.84433, -87.71248],
-], {
-    color: 'green',
-    fillColor: 'yellow',
-    fillOpacity: .11,
-}).addTo(map).bindPopup("Available ROW space between building footprints");
-
-//create a line
-var line = L.polyline([
-    [41.84450, -87.71251],
-    [41.84433, -87.71251],
-
-]).addTo(map).bindPopup("66-foot wide ROW");
-
 
 </script>
    
