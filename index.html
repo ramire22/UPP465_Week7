@@ -74,11 +74,9 @@ var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/
                     weight:.5,
                 });
         },
-        onEachFeature: function(feature, layer){
-            layer.bindPopup("Business Name"+ feature.properties.DOING_BUSINESS_AS_NAME)
-            &::first-letter {
-            text-transform: capitalize;
-}
+        onEachFeature: function(feature, layer) {
+            layer.bindPopup("Business Name"+ feature.properties.DOING_BUSINESS_AS_NAME &::first-letter {
+            text-transform: capitalize);
         }
     }).addTo(map);
 }); 
