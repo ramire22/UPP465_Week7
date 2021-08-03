@@ -64,7 +64,7 @@ var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/
 
 // load Chicago Sidewalk Permits GeoJSON File
     $.getJSON("Sidewalk_Cafe_Permits.geojson",function(data){
-    L.geoJSON(data,.addTo(map);
+    L.geoJSON(data).addTo(map);
     });
 
 </script>
