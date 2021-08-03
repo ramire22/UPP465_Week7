@@ -68,7 +68,7 @@ var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/
     L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
             return new L.CircleMarker(latlng,
-                {   radius: 2,
+                {   radius: 3,
                     fillOpacity: 1,
                     fillColor: '#FFFC3B',
                     weight:.5,
