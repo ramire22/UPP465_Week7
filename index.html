@@ -75,7 +75,7 @@ var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/
                 });
         },
         onEachFeature: function(feature, layer){
-            layer.bindPopup("<strong>"+ feature.properties.DOING_BUSINESS_AS_NAME + "</strong><br/>" + "Issued Date:" + feature.properties.PAYMENT)
+            layer.bindPopup("<strong>"+ feature.properties.DOING_BUSINESS_AS_NAME + "</strong><br/>" + "Issued Date:" + feature.properties.ISSUED_DATE)
         }
     }).addTo(map);
 }); 
